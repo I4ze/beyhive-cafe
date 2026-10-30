@@ -4,6 +4,10 @@ const PRECO_MILKSHAKE = 18.5;
 const PRECO_SANDUICHE = 29.9;
 const PRECO_BROWNIE = 14.0;
 
+// Regra da Promoção Colmeia: 10% de desconto a partir de R$ 80,00
+const VALOR_MINIMO_DESCONTO = 80.0;
+const PERCENTUAL_DESCONTO = 0.1;
+
 function simularCompra() {
   // 1. Pergunta a quantidade de cada produto e converte para número
   let qtdLimonada = Number(prompt("Quantas Limonadas Lemonade (R$ 12,00)? Digite 0 para nenhuma."));
@@ -23,14 +27,30 @@ function simularCompra() {
   let valorSanduiche = PRECO_SANDUICHE * qtdSanduiche;
   let valorBrownie = PRECO_BROWNIE * qtdBrownie;
 
-  let total = valorLimonada + valorMilkshake + valorSanduiche + valorBrownie;
+  let subtotal = valorLimonada + valorMilkshake + valorSanduiche + valorBrownie;
 
-  // 4. Mostra o resumo do pedido
+  // 4. Verifica o direito ao desconto da Promoção Colmeia
+  let desconto = 0;
+  if (subtotal >= VALOR_MINIMO_DESCONTO) {
+    desconto = subtotal * PERCENTUAL_DESCONTO;
+  }
+  let total = subtotal - desconto;
+
+  // 5. Mostra o resumo do pedido
   let resumo = "🐝 RESUMO DO PEDIDO - BEYHIVE CAFÉ 🐝\n\n";
   resumo += "Limonada Lemonade: " + qtdLimonada + " x R$ 12,00 = R$ " + valorLimonada.toFixed(2) + "\n";
   resumo += "Milkshake Renaissance: " + qtdMilkshake + " x R$ 18,50 = R$ " + valorMilkshake.toFixed(2) + "\n";
   resumo += "Sanduíche Cowboy Carter: " + qtdSanduiche + " x R$ 29,90 = R$ " + valorSanduiche.toFixed(2) + "\n";
   resumo += "Brownie Sasha Fierce: " + qtdBrownie + " x R$ 14,00 = R$ " + valorBrownie.toFixed(2) + "\n\n";
+  resumo += "Subtotal: R$ " + subtotal.toFixed(2) + "\n";
+
+  if (desconto > 0) {
+    resumo += "Promoção Colmeia (10%): - R$ " + desconto.toFixed(2) + "\n";
+  } else {
+    let falta = VALOR_MINIMO_DESCONTO - subtotal;
+    resumo += "Sem desconto. Faltaram R$ " + falta.toFixed(2) + " para ganhar 10% off.\n";
+  }
+
   resumo += "TOTAL: R$ " + total.toFixed(2);
 
   alert(resumo);
