@@ -3,76 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beyhive Café | Cardápio inspirado nos álbuns da Beyoncé</title>
+  <title>Beyhive Café</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;700&family=Fraunces:wght@900&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="hero">
-    <p class="hero-tag">Lanchonete temática</p>
-    <h1>Beyhive Café</h1>
+    <p class="hero-tag">★ Estrada da Colmeia, km 66 ★</p>
+
+    <h1>
+      <!-- "BEYHIVE" em arco, igual ao "TELEPHONE" do pôster do clipe -->
+      <svg class="logo" viewBox="0 0 1000 270" role="img" aria-label="Beyhive">
+        <path id="arco" d="M 40 250 Q 500 40 960 250" fill="none" />
+        <text class="logo-sombra" transform="translate(7 9)">
+          <textPath href="#arco" startOffset="50%" text-anchor="middle">BEYHIVE</textPath>
+        </text>
+        <text class="logo-frente">
+          <textPath href="#arco" startOffset="50%" text-anchor="middle">BEYHIVE</textPath>
+        </text>
+      </svg>
+      <span class="placa">
+        <span>C</span><span>A</span><span>F</span><span>É</span>
+      </span>
+    </h1>
+    <p class="placa-sub">Home style cooking</p>
+
+    <p class="estrelando">
+      <small>estrelando</small>
+      Mel de verdade &amp; café coado na hora
+    </p>
     <p class="hero-desc">
-      Um cardápio onde cada item é inspirado em uma era da Beyoncé.
-      Do mel da colmeia à limonada mais famosa da música pop, aqui cada pedido é um álbum.
+      Um diner de beira de estrada onde quase tudo leva mel.
+      Senta no balcão, pede o de sempre e deixa o telefone tocar.
     </p>
   </header>
 
-  <main>
+  <div class="faixa">
+    <p>★ Aberto todos os dias ★ Mel de verdade ★ Home style cooking ★ Aberto todos os dias ★ Mel de verdade ★ Home style cooking ★</p>
+  </div>
 
-    <section class="menu">
+  <main>
+    <section>
       <h2>Cardápio</h2>
 
       <div class="cards">
-
-        <article class="card card-lemonade">
-          <span class="card-era">Lemonade · 2016</span>
-          <h3>Limonada Lemonade</h3>
-          <p>Limonada siciliana com mel e hortelã. Quando a vida te dá limões...</p>
+        <div class="card">
+          <span class="card-tag">Gelado</span>
+          <h3>Café Stop Callin'</h3>
+          <p>Cold brew com mel de laranjeira e espuma de leite. Para quem não quer ser interrompido.</p>
           <p class="price">R$ 12,00</p>
-        </article>
+        </div>
 
-        <article class="card card-renaissance">
-          <span class="card-era">Renaissance · 2022</span>
-          <h3>Milkshake Renaissance</h3>
-          <p>Milkshake de baunilha com glitter comestível prateado. Brilha como bola de espelhos.</p>
+        <div class="card">
+          <span class="card-tag">Da máquina</span>
+          <h3>Milkshake Telephone</h3>
+          <p>Sorvete de baunilha batido com mel e caramelo salgado, chantilly e canudo vermelho. Vem no copo alto de metal.</p>
           <p class="price">R$ 18,50</p>
-        </article>
+        </div>
 
-        <article class="card card-cowboy">
-          <span class="card-era">Cowboy Carter · 2024</span>
-          <h3>Sanduíche Cowboy Carter</h3>
-          <p>Pão brioche, costela desfiada ao barbecue e cebola crispy. Sabor de rodeio.</p>
+        <div class="card">
+          <span class="card-tag">Mais pedido</span>
+          <h3>Sanduíche Let's Make a Sandwich</h3>
+          <p>Pão de forma na manteiga, frango empanado com hot honey, queijo, alface e picles. Receita da casa.</p>
           <p class="price">R$ 29,90</p>
-        </article>
+        </div>
 
-        <article class="card card-sasha">
-          <span class="card-era">I Am... Sasha Fierce · 2008</span>
-          <h3>Brownie Sasha Fierce</h3>
-          <p>Brownie meio amargo com pimenta e calda quente. Doce por fora, fierce por dentro.</p>
+        <div class="card">
+          <span class="card-tag">Doce</span>
+          <h3>Panquecas Honey B</h3>
+          <p>Três panquecas fofas com manteiga batida e mel escorrendo. A queridinha do balcão desde o primeiro dia.</p>
           <p class="price">R$ 14,00</p>
-        </article>
-
+        </div>
       </div>
     </section>
 
     <section class="how">
+      <p class="comanda-topo">Comanda <span>Nº 0066</span></p>
       <h2>Como fazer seu pedido</h2>
       <ol>
         <li>Clique no botão <strong>Simular compra</strong>.</li>
-        <li>Digite a quantidade desejada de cada item. Use <strong>0</strong> para não pedir aquele item.</li>
-        <li>Confira no final o valor de cada item, o total e se você ganhou desconto.</li>
+        <li>Digite a quantidade de cada item. Use <strong>0</strong> para não pedir aquele item.</li>
+        <li>Confira o valor de cada item, o total e se você ganhou desconto.</li>
       </ol>
       <p class="promo">
         🐝 <strong>Promoção Colmeia:</strong> pedidos a partir de <strong>R$ 80,00</strong> ganham <strong>10% de desconto</strong>.
       </p>
       <button class="btn" onclick="simularCompra()">Simular compra</button>
     </section>
-
   </main>
 
   <footer>
-    <p>Desenvolvido por <strong>Iaze Guilherme</strong> · Trilha Desenvolvimento Mobile · 2026</p>
-    <p class="disclaimer">Projeto acadêmico fictício, sem vínculo com a artista.</p>
+    <p class="footer-nome">Beyhive Café</p>
+    <p>Estrada da Colmeia, km 66 · Aberto todos os dias, das 7h à meia-noite</p>
+    <p class="credito">Desenvolvido por <strong>Iaze Guilherme</strong> · 2026</p>
   </footer>
 
   <script src="script.js"></script>

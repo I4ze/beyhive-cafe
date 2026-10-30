@@ -1,16 +1,12 @@
-/* ===== Variáveis de cor ===== */
+/* Cores inspiradas no diner do clipe Telephone */
 :root {
-  --mel: #f5b700;
-  --mel-escuro: #c98f00;
-  --preto: #141210;
-  --grafite: #24201c;
-  --creme: #fbf6ea;
-  --texto-suave: #cfc6b4;
-
-  --lemonade: #f7d84a;
-  --renaissance: #c9ccd6;
-  --cowboy: #b0703c;
-  --sasha: #b3263a;
+  --azul: #9fd3e6;
+  --verde: #6fb3a1;
+  --verde-escuro: #2e6b5f;
+  --vermelho: #c8211a;
+  --vinho: #5a0d09;
+  --amarelo: #ffd21f;
+  --creme: #fff6e0;
 }
 
 * {
@@ -20,169 +16,294 @@
 }
 
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: var(--preto);
-  color: var(--creme);
+  font-family: "Archivo", Arial, sans-serif;
+  background-color: var(--verde);
+  color: #2a1a12;
   line-height: 1.6;
 }
 
-/* ===== Cabeçalho ===== */
+/* Títulos amarelos com sombra vermelha, como no pôster */
+h2 {
+  font-family: "Alfa Slab One", serif;
+  font-weight: normal;
+  font-size: 3rem;
+  color: var(--amarelo);
+  text-shadow: 3px 3px 0 var(--vermelho), 6px 6px 0 var(--vinho);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Cabeçalho */
 .hero {
   text-align: center;
-  padding: 72px 20px 56px;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(245, 183, 0, 0.25), transparent 60%),
-    var(--preto);
-  border-bottom: 4px solid var(--mel);
+  padding: 40px 16px 48px;
+  background: linear-gradient(var(--azul), #e4f3f8);
 }
 
 .hero-tag {
+  font-family: "Alfa Slab One", serif;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.8rem;
-  color: var(--mel);
+  color: var(--vermelho);
 }
 
-.hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.6rem, 8vw, 4.5rem);
-  color: var(--mel);
-  margin: 8px 0 16px;
+.logo {
+  display: block;
+  max-width: 860px;
+  margin: 0 auto;
+  font-family: "Alfa Slab One", serif;
+  font-size: 168px;
+}
+
+.logo-sombra {
+  fill: var(--vermelho);
+}
+
+.logo-frente {
+  fill: var(--amarelo);
+  stroke: var(--vinho);
+  stroke-width: 4px;
+}
+
+/* Letreiro com uma letra em cada placa */
+.placa {
+  display: inline-flex;
+  gap: 6px;
+  padding: 8px;
+  background-color: var(--verde-escuro);
+  border-radius: 6px;
+}
+
+.placa span {
+  width: 60px;
+  background-color: var(--creme);
+  border: 3px solid var(--vinho);
+  font-family: "Alfa Slab One", serif;
+  font-weight: normal;
+  font-size: 2.6rem;
+  color: var(--vermelho);
+}
+
+.placa-sub {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 14px;
+  background-color: var(--creme);
+  border: 2px solid var(--verde-escuro);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+}
+
+.estrelando {
+  margin-top: 28px;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--amarelo);
+  text-shadow: 2px 2px 0 var(--vermelho), 4px 4px 0 var(--vinho);
+}
+
+.estrelando small {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--vermelho);
+  text-shadow: none;
 }
 
 .hero-desc {
-  max-width: 560px;
-  margin: 0 auto;
-  color: var(--texto-suave);
+  max-width: 520px;
+  margin: 18px auto 0;
+  color: #5b4a3e;
 }
 
-/* ===== Seções ===== */
+/* Faixa vermelha */
+.faixa {
+  overflow: hidden;
+  background-color: var(--vermelho);
+  border-top: 4px solid var(--vinho);
+  border-bottom: 4px solid var(--vinho);
+}
+
+.faixa p {
+  padding: 10px 0;
+  white-space: nowrap;
+  font-family: "Alfa Slab One", serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+}
+
 main {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 56px 16px;
 }
 
-h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-  color: var(--mel);
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-/* ===== Cards dos produtos ===== */
+/* Cards do cardápio */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
+  gap: 22px;
 }
 
 .card {
-  background-color: var(--grafite);
-  border-radius: 14px;
-  padding: 24px 20px;
-  border-top: 6px solid var(--mel);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 22px 20px;
+  background-color: var(--creme);
+  border: 3px solid var(--vinho);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--verde-escuro);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
 }
 
-.card-era {
+.card-tag {
+  align-self: flex-start;
+  padding: 2px 10px;
+  background-color: var(--vermelho);
+  border-radius: 20px;
   font-size: 0.75rem;
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--texto-suave);
+  color: var(--creme);
 }
 
 .card h3 {
-  font-size: 1.25rem;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--vinho);
 }
 
 .card p {
-  color: var(--texto-suave);
+  color: #5b4a3e;
   font-size: 0.95rem;
 }
 
 .card .price {
   margin-top: auto;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--mel);
+  padding-top: 10px;
+  border-top: 2px dashed #f2a900;
+  font-family: "Alfa Slab One", serif;
+  font-size: 1.5rem;
+  color: var(--vermelho);
 }
 
-/* Cor de cada era */
-.card-lemonade    { border-top-color: var(--lemonade); }
-.card-renaissance { border-top-color: var(--renaissance); }
-.card-cowboy      { border-top-color: var(--cowboy); }
-.card-sasha       { border-top-color: var(--sasha); }
-
-/* ===== Como pedir ===== */
+/* Como pedir (comanda) */
 .how {
-  margin-top: 56px;
-  background-color: var(--grafite);
-  border-radius: 14px;
-  padding: 32px 24px;
+  max-width: 640px;
+  margin: 64px auto 0;
+  padding-bottom: 32px;
+  background-color: #fffdf6;
+  border: 3px solid var(--vinho);
+  border-radius: 6px;
+  box-shadow: 8px 8px 0 var(--verde-escuro);
   text-align: center;
+}
+
+.comanda-topo {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+  background-color: var(--verde-escuro);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--creme);
+}
+
+.comanda-topo span {
+  color: var(--amarelo);
+}
+
+.how h2 {
+  font-size: 2.2rem;
 }
 
 .how ol {
-  max-width: 560px;
-  margin: 0 auto 20px;
+  margin: 0 24px 24px 46px;
   text-align: left;
-  padding-left: 20px;
 }
 
 .how li {
-  margin-bottom: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #b9d9e6;
 }
 
 .promo {
-  background-color: rgba(245, 183, 0, 0.12);
-  border: 1px dashed var(--mel);
-  border-radius: 10px;
+  margin: 0 24px 28px;
   padding: 12px;
-  max-width: 560px;
-  margin: 0 auto 24px;
+  background-color: var(--amarelo);
+  border: 2px dashed var(--vinho);
+  border-radius: 10px;
 }
 
 .btn {
-  background-color: var(--mel);
-  color: var(--preto);
-  border: none;
-  border-radius: 999px;
-  padding: 14px 40px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  padding: 14px 44px;
+  background-color: var(--vermelho);
+  color: var(--amarelo);
+  border: 3px solid var(--vinho);
+  border-radius: 30px;
+  box-shadow: 0 5px 0 var(--vinho);
+  font-family: "Alfa Slab One", serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
 }
 
 .btn:hover {
-  background-color: var(--mel-escuro);
+  background-color: #a81a14;
 }
 
-.btn:active {
-  transform: scale(0.97);
-}
-
-/* ===== Rodapé ===== */
+/* Rodapé */
 footer {
   text-align: center;
-  padding: 28px 20px;
-  border-top: 1px solid #333;
-  color: var(--texto-suave);
+  padding: 32px 16px;
+  background-color: var(--vinho);
+  color: var(--creme);
   font-size: 0.9rem;
 }
 
-.disclaimer {
-  font-size: 0.75rem;
-  margin-top: 4px;
-  opacity: 0.7;
+.footer-nome {
+  font-family: "Alfa Slab One", serif;
+  font-size: 1.4rem;
+  color: var(--amarelo);
+}
+
+.credito {
+  margin-top: 8px;
+  font-size: 0.8rem;
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .hero-tag {
+    font-size: 0.75rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  .placa span {
+    width: 46px;
+    font-size: 2rem;
+  }
+
+  .estrelando {
+    font-size: 1.5rem;
+  }
 }

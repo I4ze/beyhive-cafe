@@ -1,20 +1,19 @@
-// Preços dos produtos (iguais aos exibidos na página)
-const PRECO_LIMONADA = 12.0;
-const PRECO_MILKSHAKE = 18.5;
-const PRECO_SANDUICHE = 29.9;
-const PRECO_BROWNIE = 14.0;
+// Preços dos produtos (os mesmos da página)
+const precoCafe = 12.0;
+const precoMilkshake = 18.5;
+const precoSanduiche = 29.9;
+const precoPanqueca = 14.0;
 
-// Regra da Promoção Colmeia: 10% de desconto a partir de R$ 80,00
-const VALOR_MINIMO_DESCONTO = 80.0;
-const PERCENTUAL_DESCONTO = 0.1;
+// Promoção Colmeia: 10% de desconto a partir de R$ 80,00
+const valorMinimoDesconto = 80.0;
+const desconto = 0.1;
 
-// Pergunta a quantidade de um produto e só aceita números inteiros a partir de 0.
-// Se o usuário digitar texto, número negativo ou decimal, a pergunta é repetida.
-// Formata um número no padrão de moeda brasileiro, ex.: 74.4 -> "74,40"
+// Mostra o valor com vírgula, ex.: 74.4 vira "74,40"
 function formatarReal(valor) {
   return valor.toFixed(2).replace(".", ",");
 }
 
+// Repete a pergunta até a pessoa digitar um número inteiro de 0 pra cima
 function perguntarQuantidade(mensagem) {
   let quantidade = Number(prompt(mensagem));
 
@@ -27,46 +26,41 @@ function perguntarQuantidade(mensagem) {
 }
 
 function simularCompra() {
-  // 1. Pergunta a quantidade de cada produto e converte para número
-  let qtdLimonada = perguntarQuantidade("Quantas Limonadas Lemonade (R$ 12,00)? Digite 0 para nenhuma.");
-  let qtdMilkshake = perguntarQuantidade("Quantos Milkshakes Renaissance (R$ 18,50)? Digite 0 para nenhum.");
-  let qtdSanduiche = perguntarQuantidade("Quantos Sanduíches Cowboy Carter (R$ 29,90)? Digite 0 para nenhum.");
-  let qtdBrownie = perguntarQuantidade("Quantos Brownies Sasha Fierce (R$ 14,00)? Digite 0 para nenhum.");
+  let qtdCafe = perguntarQuantidade("Quantos Cafés Stop Callin' (R$ 12,00)? Digite 0 para nenhum.");
+  let qtdMilkshake = perguntarQuantidade("Quantos Milkshakes Telephone (R$ 18,50)? Digite 0 para nenhum.");
+  let qtdSanduiche = perguntarQuantidade("Quantos Sanduíches Let's Make a Sandwich (R$ 29,90)? Digite 0 para nenhum.");
+  let qtdPanqueca = perguntarQuantidade("Quantas Panquecas Honey B (R$ 14,00)? Digite 0 para nenhuma.");
 
-  // 2. Verifica se nenhum produto foi escolhido
-  if (qtdLimonada === 0 && qtdMilkshake === 0 && qtdSanduiche === 0 && qtdBrownie === 0) {
+  if (qtdCafe == 0 && qtdMilkshake == 0 && qtdSanduiche == 0 && qtdPanqueca == 0) {
     alert("Nenhum produto foi selecionado. Volte sempre ao Beyhive Café! 🐝");
     return;
   }
 
-  // 3. Calcula o valor de cada produto (preço x quantidade)
-  let valorLimonada = PRECO_LIMONADA * qtdLimonada;
-  let valorMilkshake = PRECO_MILKSHAKE * qtdMilkshake;
-  let valorSanduiche = PRECO_SANDUICHE * qtdSanduiche;
-  let valorBrownie = PRECO_BROWNIE * qtdBrownie;
+  let valorCafe = precoCafe * qtdCafe;
+  let valorMilkshake = precoMilkshake * qtdMilkshake;
+  let valorSanduiche = precoSanduiche * qtdSanduiche;
+  let valorPanqueca = precoPanqueca * qtdPanqueca;
 
-  let subtotal = valorLimonada + valorMilkshake + valorSanduiche + valorBrownie;
+  let subtotal = valorCafe + valorMilkshake + valorSanduiche + valorPanqueca;
+  let valorDesconto = 0;
 
-  // 4. Verifica o direito ao desconto da Promoção Colmeia
-  let desconto = 0;
-  if (subtotal >= VALOR_MINIMO_DESCONTO) {
-    desconto = subtotal * PERCENTUAL_DESCONTO;
+  if (subtotal >= valorMinimoDesconto) {
+    valorDesconto = subtotal * desconto;
   }
-  let total = subtotal - desconto;
 
-  // 5. Mostra o resumo do pedido
-  let resumo = "🐝 RESUMO DO PEDIDO - BEYHIVE CAFÉ 🐝\n\n";
-  resumo += "Limonada Lemonade: " + qtdLimonada + " x R$ 12,00 = R$ " + formatarReal(valorLimonada) + "\n";
-  resumo += "Milkshake Renaissance: " + qtdMilkshake + " x R$ 18,50 = R$ " + formatarReal(valorMilkshake) + "\n";
-  resumo += "Sanduíche Cowboy Carter: " + qtdSanduiche + " x R$ 29,90 = R$ " + formatarReal(valorSanduiche) + "\n";
-  resumo += "Brownie Sasha Fierce: " + qtdBrownie + " x R$ 14,00 = R$ " + formatarReal(valorBrownie) + "\n\n";
+  let total = subtotal - valorDesconto;
+
+  let resumo = "🐝 BEYHIVE CAFÉ - SEU PEDIDO 🐝\n\n";
+  resumo += "Café Stop Callin': " + qtdCafe + " x R$ 12,00 = R$ " + formatarReal(valorCafe) + "\n";
+  resumo += "Milkshake Telephone: " + qtdMilkshake + " x R$ 18,50 = R$ " + formatarReal(valorMilkshake) + "\n";
+  resumo += "Sanduíche Let's Make a Sandwich: " + qtdSanduiche + " x R$ 29,90 = R$ " + formatarReal(valorSanduiche) + "\n";
+  resumo += "Panquecas Honey B: " + qtdPanqueca + " x R$ 14,00 = R$ " + formatarReal(valorPanqueca) + "\n\n";
   resumo += "Subtotal: R$ " + formatarReal(subtotal) + "\n";
 
-  if (desconto > 0) {
-    resumo += "Promoção Colmeia (10%): - R$ " + formatarReal(desconto) + "\n";
+  if (valorDesconto > 0) {
+    resumo += "Promoção Colmeia (10%): - R$ " + formatarReal(valorDesconto) + "\n";
   } else {
-    let falta = VALOR_MINIMO_DESCONTO - subtotal;
-    resumo += "Sem desconto. Faltaram R$ " + formatarReal(falta) + " para ganhar 10% off.\n";
+    resumo += "Sem desconto. Faltaram R$ " + formatarReal(valorMinimoDesconto - subtotal) + " para ganhar 10%.\n";
   }
 
   resumo += "TOTAL: R$ " + formatarReal(total);
