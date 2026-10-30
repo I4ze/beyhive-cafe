@@ -1,0 +1,188 @@
+/* ===== Variáveis de cor ===== */
+:root {
+  --mel: #f5b700;
+  --mel-escuro: #c98f00;
+  --preto: #141210;
+  --grafite: #24201c;
+  --creme: #fbf6ea;
+  --texto-suave: #cfc6b4;
+
+  --lemonade: #f7d84a;
+  --renaissance: #c9ccd6;
+  --cowboy: #b0703c;
+  --sasha: #b3263a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--preto);
+  color: var(--creme);
+  line-height: 1.6;
+}
+
+/* ===== Cabeçalho ===== */
+.hero {
+  text-align: center;
+  padding: 72px 20px 56px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 183, 0, 0.25), transparent 60%),
+    var(--preto);
+  border-bottom: 4px solid var(--mel);
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  color: var(--mel);
+}
+
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  color: var(--mel);
+  margin: 8px 0 16px;
+}
+
+.hero-desc {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--texto-suave);
+}
+
+/* ===== Seções ===== */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  color: var(--mel);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* ===== Cards dos produtos ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--grafite);
+  border-radius: 14px;
+  padding: 24px 20px;
+  border-top: 6px solid var(--mel);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.card-era {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--texto-suave);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.card .price {
+  margin-top: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--mel);
+}
+
+/* Cor de cada era */
+.card-lemonade    { border-top-color: var(--lemonade); }
+.card-renaissance { border-top-color: var(--renaissance); }
+.card-cowboy      { border-top-color: var(--cowboy); }
+.card-sasha       { border-top-color: var(--sasha); }
+
+/* ===== Como pedir ===== */
+.how {
+  margin-top: 56px;
+  background-color: var(--grafite);
+  border-radius: 14px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.how ol {
+  max-width: 560px;
+  margin: 0 auto 20px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.how li {
+  margin-bottom: 8px;
+}
+
+.promo {
+  background-color: rgba(245, 183, 0, 0.12);
+  border: 1px dashed var(--mel);
+  border-radius: 10px;
+  padding: 12px;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+.btn {
+  background-color: var(--mel);
+  color: var(--preto);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background-color: var(--mel-escuro);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== Rodapé ===== */
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  border-top: 1px solid #333;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  opacity: 0.7;
+}
