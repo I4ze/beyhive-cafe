@@ -8,12 +8,25 @@ const PRECO_BROWNIE = 14.0;
 const VALOR_MINIMO_DESCONTO = 80.0;
 const PERCENTUAL_DESCONTO = 0.1;
 
+// Pergunta a quantidade de um produto e só aceita números inteiros a partir de 0.
+// Se o usuário digitar texto, número negativo ou decimal, a pergunta é repetida.
+function perguntarQuantidade(mensagem) {
+  let quantidade = Number(prompt(mensagem));
+
+  while (isNaN(quantidade) || quantidade < 0 || !Number.isInteger(quantidade)) {
+    alert("Quantidade inválida! Digite um número inteiro, como 0, 1, 2...");
+    quantidade = Number(prompt(mensagem));
+  }
+
+  return quantidade;
+}
+
 function simularCompra() {
   // 1. Pergunta a quantidade de cada produto e converte para número
-  let qtdLimonada = Number(prompt("Quantas Limonadas Lemonade (R$ 12,00)? Digite 0 para nenhuma."));
-  let qtdMilkshake = Number(prompt("Quantos Milkshakes Renaissance (R$ 18,50)? Digite 0 para nenhum."));
-  let qtdSanduiche = Number(prompt("Quantos Sanduíches Cowboy Carter (R$ 29,90)? Digite 0 para nenhum."));
-  let qtdBrownie = Number(prompt("Quantos Brownies Sasha Fierce (R$ 14,00)? Digite 0 para nenhum."));
+  let qtdLimonada = perguntarQuantidade("Quantas Limonadas Lemonade (R$ 12,00)? Digite 0 para nenhuma.");
+  let qtdMilkshake = perguntarQuantidade("Quantos Milkshakes Renaissance (R$ 18,50)? Digite 0 para nenhum.");
+  let qtdSanduiche = perguntarQuantidade("Quantos Sanduíches Cowboy Carter (R$ 29,90)? Digite 0 para nenhum.");
+  let qtdBrownie = perguntarQuantidade("Quantos Brownies Sasha Fierce (R$ 14,00)? Digite 0 para nenhum.");
 
   // 2. Verifica se nenhum produto foi escolhido
   if (qtdLimonada === 0 && qtdMilkshake === 0 && qtdSanduiche === 0 && qtdBrownie === 0) {
