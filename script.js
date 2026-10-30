@@ -10,6 +10,11 @@ const PERCENTUAL_DESCONTO = 0.1;
 
 // Pergunta a quantidade de um produto e só aceita números inteiros a partir de 0.
 // Se o usuário digitar texto, número negativo ou decimal, a pergunta é repetida.
+// Formata um número no padrão de moeda brasileiro, ex.: 74.4 -> "74,40"
+function formatarReal(valor) {
+  return valor.toFixed(2).replace(".", ",");
+}
+
 function perguntarQuantidade(mensagem) {
   let quantidade = Number(prompt(mensagem));
 
@@ -51,20 +56,20 @@ function simularCompra() {
 
   // 5. Mostra o resumo do pedido
   let resumo = "🐝 RESUMO DO PEDIDO - BEYHIVE CAFÉ 🐝\n\n";
-  resumo += "Limonada Lemonade: " + qtdLimonada + " x R$ 12,00 = R$ " + valorLimonada.toFixed(2) + "\n";
-  resumo += "Milkshake Renaissance: " + qtdMilkshake + " x R$ 18,50 = R$ " + valorMilkshake.toFixed(2) + "\n";
-  resumo += "Sanduíche Cowboy Carter: " + qtdSanduiche + " x R$ 29,90 = R$ " + valorSanduiche.toFixed(2) + "\n";
-  resumo += "Brownie Sasha Fierce: " + qtdBrownie + " x R$ 14,00 = R$ " + valorBrownie.toFixed(2) + "\n\n";
-  resumo += "Subtotal: R$ " + subtotal.toFixed(2) + "\n";
+  resumo += "Limonada Lemonade: " + qtdLimonada + " x R$ 12,00 = R$ " + formatarReal(valorLimonada) + "\n";
+  resumo += "Milkshake Renaissance: " + qtdMilkshake + " x R$ 18,50 = R$ " + formatarReal(valorMilkshake) + "\n";
+  resumo += "Sanduíche Cowboy Carter: " + qtdSanduiche + " x R$ 29,90 = R$ " + formatarReal(valorSanduiche) + "\n";
+  resumo += "Brownie Sasha Fierce: " + qtdBrownie + " x R$ 14,00 = R$ " + formatarReal(valorBrownie) + "\n\n";
+  resumo += "Subtotal: R$ " + formatarReal(subtotal) + "\n";
 
   if (desconto > 0) {
-    resumo += "Promoção Colmeia (10%): - R$ " + desconto.toFixed(2) + "\n";
+    resumo += "Promoção Colmeia (10%): - R$ " + formatarReal(desconto) + "\n";
   } else {
     let falta = VALOR_MINIMO_DESCONTO - subtotal;
-    resumo += "Sem desconto. Faltaram R$ " + falta.toFixed(2) + " para ganhar 10% off.\n";
+    resumo += "Sem desconto. Faltaram R$ " + formatarReal(falta) + " para ganhar 10% off.\n";
   }
 
-  resumo += "TOTAL: R$ " + total.toFixed(2);
+  resumo += "TOTAL: R$ " + formatarReal(total);
 
   alert(resumo);
 }
